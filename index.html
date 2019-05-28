@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Nested nutrients in treegrid</title>
+    <script src="treegrid/GridE.js"> </script>
+    <script type="text/javascript">
+        if (typeof (calculateNut) == "undefined") {
+          var calculateNut = function(qty, rdt) {
+            console.log("Calculating nutrient with : " + qty.QTY + " and " + rdt);
+            if (qty.QTY) {
+                return qty.QTY * rdt / 100;
+            } else {
+                return rdt;
+            }
+          }
+        }
+        if (typeof (same) == "undefined") {
+          var same = function(qty, parent) {
+            console.log("ICIIIIII : " + parent );
+            return qty;
+          }
+        }
+      </script>
+</head>
+
+<body>
+  <div class="Main" style='width:100%; height:1000px;'>
+      <treegrid Debug='Error' Data_Url='01-Master.xml'></treegrid>
+   </div>
+</body>
+<!-- Debug="IO,Error,Problem,Info,Check,IOError,Cookie,Page,Event" -->
+
+</html>

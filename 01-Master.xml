@@ -1,0 +1,63 @@
+<Grid>
+    <Cfg Calculated="1" CopyCols="2" CopyPasteTree="3" ExternalAlign="1" MainCol="ARTICLE" ShowVScroll="1" SuppressCfg="1" Undo="1" id="MasterNested" Style="White"/>
+    <Cols>
+        <C GroupWidth="1" Name="ARTICLE" Type="Text" Width="900"/>
+        <C Name="QTY" Type="Float"/>
+        <C
+        Name="NUTRIENT" Type="Text" Visible="0"/>
+        <!--  Detail column for copy & paste and save  -->
+        <C
+        Name="RDT" Type="Float" Visible="0"/>
+        <!--  Detail column for copy & paste and save  -->
+        <C
+        Name="VALUE" Type="Float" Visible="0"/>
+    <!--  Detail column for copy & paste and save  -->
+    </Cols>
+    <Panel Copy="1"/>
+    <Def>
+        <!--  The default row for all master rows  -->
+        <D
+        AcceptDef="DETAIL" CDef="DETAIL" Expanded="0" Name="MAIN"/>
+        <!--   The default row for all detail grid parents  -->
+        <D
+        ARTICLESpan="2" AcceptDef="DETAILROW" CDef="DETAILROW" CanDelete="0" CanExpand="0" CanExport="0" CanFilter="0" DetailCol="ARTICLE" DetailLayout="01-Detail.xml" Expanded="0" Name="DETAIL" Spanned="1"/>
+        <!--  The default row for rows in detail grid  -->
+        <D 
+        CalcOrder="VALUE" Calculated="1" CanDelete="0" CanDrag="0" Name="DETAILROW" Recalc="256" VALUEFormula="Parent.parentNode.ARTICLE ? calculateNut(Parent.parentNode, RDT): same(VALUE, Parent.parentNode)"/>
+    </Def>
+    <Root AcceptDef="MAIN" CDef="MAIN"/>
+    <Header ARTICLE="Article" QTY="Quantité" />
+    <Head>
+        <Filter ARTICLEButton="Defaults" ARTICLEDefaults="|*FilterOff|*RowsAll"/>
+    </Head>
+    <Body>
+        <B>
+            <I ARTICLE="Farine de blé" Expanded="1" QTY="24">
+                <I>
+                    <I NUTRIENT="Fibres alimentaires" RDT="100"/>
+                    <I NUTRIENT="Protéines" RDT="100"/>
+                    <I NUTRIENT="Sodium" RDT="100"/>
+                </I>
+            </I>
+            <I ARTICLE="Lait en poudre" Expanded="1" QTY="38">
+                <I>
+                    <I NUTRIENT="Protéines" RDT="100"/>
+                    <I NUTRIENT="Sodium" RDT="100"/>
+                </I>
+            </I>
+            <I ARTICLE="Sel de Guérande" Expanded="1" QTY="12">
+                <I>
+                    <I NUTRIENT="Fibres alimentaires" RDT="100"/>
+                    <I NUTRIENT="Alcool" RDT="10"/>
+                </I>
+            </I>
+            <I ARTICLE="Tomate fraîche" Expanded="1" QTY="65">
+                <I>
+                    <I NUTRIENT="Fibres alimentaires" RDT="2"/>
+                    <I NUTRIENT="Alcool" RDT="23.5"/>
+                    <I NUTRIENT="Salatrims" RDT="3.5"/>
+                </I>
+            </I>
+        </B>
+    </Body>
+</Grid>
