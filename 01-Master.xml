@@ -17,13 +17,15 @@
     <Def>
         <!--  The default row for all master rows  -->
         <D
-        AcceptDef="DETAIL" CDef="DETAIL" Expanded="0" Name="MAIN"/>
+        AcceptDef="DETAIL" CDef="DETAIL" Expanded="0" Name="MAIN" QTYCopyTo="Children,QTY"/>
         <!--   The default row for all detail grid parents  -->
-        <D
+        <D QTYCopyTo="Children,QTY"
         ARTICLESpan="2" AcceptDef="DETAILROW" CDef="DETAILROW" CanDelete="0" CanExpand="0" CanExport="0" CanFilter="0" DetailCol="ARTICLE" DetailLayout="01-Detail.xml" Expanded="0" Name="DETAIL" Spanned="1"/>
         <!--  The default row for rows in detail grid  -->
         <D 
-        CalcOrder="VALUE" Calculated="1" CanDelete="0" CanDrag="0" Name="DETAILROW" Recalc="256" VALUEFormula="Parent.parentNode.ARTICLE ? calculateNut(Parent.parentNode, RDT): same(VALUE, Parent.parentNode)"/>
+        CalcOrder="VALUE" Calculated="1" CanDelete="0" CanDrag="0" Name="DETAILROW" Recalc="256" 
+        VALUEFormula="calculateNut((QTY ? QTY : (Grid.NestedGrid?Grid.GetMasterRow(Row):Row.parentNode).parentNode.QTY), RDT)"/>
+        <!-- VALUEFormula="Parent.parentNode.ARTICLE ? calculateNut(Parent.parentNode, RDT): same(VALUE, Parent.parentNode)"/> -->
     </Def>
     <Root AcceptDef="MAIN" CDef="MAIN"/>
     <Header ARTICLE="Article" QTY="Quantité" />

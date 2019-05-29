@@ -4,7 +4,7 @@
         <C Name="NUTRIENT" Type="Text" Width="300"/>
         <C EditFormat="0.00" Format="0.00" Name="RDT" Type="Float" Width="150"/>
         <C EditFormat="0.00" Format="0.00" Name="VALUE" Type="Float" Width="150"/>
-        <C Name="PARENTDEF" Type="Text" Width="150"/>
+        <C Name="QTY" Type="Float" Hidden="1" Visible="0"/>
     </Cols>
     <Head>
         <Filter NUTRIENTButton="Defaults" NUTRIENTDefaults="|*FilterOff|*RowsAll" />

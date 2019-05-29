@@ -8,18 +8,12 @@
     <script type="text/javascript">
         if (typeof (calculateNut) == "undefined") {
           var calculateNut = function(qty, rdt) {
-            console.log("Calculating nutrient with : " + qty.QTY + " and " + rdt);
-            if (qty.QTY) {
-                return qty.QTY * rdt / 100;
+            console.log("Calculating nutrient with : " + qty + " and " + rdt);
+            if (qty) {
+                return qty * rdt / 100;
             } else {
                 return rdt;
             }
-          }
-        }
-        if (typeof (same) == "undefined") {
-          var same = function(qty, parent) {
-            console.log("ICIIIIII : " + parent );
-            return qty;
           }
         }
       </script>
